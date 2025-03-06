@@ -1,10 +1,10 @@
 const express = require("express");
-const controllers = require("./controllers");
+const PageController = require("./controllers/PageController");
 
 
 const router = express.Router();
 
-router.get("/datenschutz", controllers.PageController.datenschutz);
-router.get("/impressum", controllers.PageController.impressum);
+router.get("/datenschutz", PageController.datenschutz);
+router.get("/impressum", PageController.impressum);
 
 module.exports = router;

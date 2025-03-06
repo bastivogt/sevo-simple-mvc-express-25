@@ -1,4 +1,5 @@
-const BaseController = require("../../sevo/controllers/BaseController");
+const BaseController = require("../../../sevo/controllers/BaseController");
+
 class PersonController extends BaseController {
 
     index(req, res, next) {
@@ -8,7 +9,8 @@ class PersonController extends BaseController {
     }
     create(req, res, next) {
         res.render("personApp/create", {
-            "title": "personApp#create",
+            "title": "personApp#create CREATE",
+            "referrer": req.get("referrer")
         })
     }
     detail(req, res, next) {
@@ -18,7 +20,8 @@ class PersonController extends BaseController {
         }
         return res.render("personApp/detail", {
             "title": "personApp#detail",
-            "id": id
+            "id": id,
+            "referrer": req.get("referrer")
         })
     }
     update(req, res, next) {
@@ -31,7 +34,8 @@ class PersonController extends BaseController {
         }
         return res.render("personApp/update", {
             "title": "personApp#update",
-            "id": id
+            "id": id,
+            "referrer": req.get("referrer")
         })
     }
     delete(req, res, next) {
@@ -40,12 +44,11 @@ class PersonController extends BaseController {
             return next();
         }
         return res.render("personApp/update", {
-            "title": "personApp#update",
-            "id": id
+            "title": "personApp#delete",
+            "id": id,
+            "referrer": req.get("referrer")
         })
     }
 }
 
-module.exports = {
-    PersonController: PersonController.getInstance()
-}
+module.exports = PersonController.getInstance();

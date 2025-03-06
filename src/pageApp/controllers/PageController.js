@@ -1,4 +1,4 @@
-const BaseController = require("../../sevo/controllers/BaseController");
+const BaseController = require("../../../sevo/controllers/BaseController");
 
 class PageController extends BaseController {
     datenschutz(req, res) {
@@ -14,6 +14,4 @@ class PageController extends BaseController {
     }
 }
 
-module.exports = {
-    PageController: PageController.getInstance()
-}
+module.exports = PageController.getInstance();
