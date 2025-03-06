@@ -7,6 +7,8 @@ const pageAppRouter = require("./src/pageApp/routes");
 const PageController = require("./src/pageApp/controllers/PageController");
 const LoggerMiddleware = require("./src/loggerApp/middleware/LoggerMiddleware");
 
+
+
 const app = express();
 const port = 8042;
 const host = "http://localhost";
@@ -26,10 +28,8 @@ app.get("/", PageController.index);
 app.use("/person", personAppRouter);
 app.use("/page", pageAppRouter);
 
-
-app.use((req, res, next) =>{
-    res.send("404 - Page not found");
-});
+// 404
+app.use(PageController._404);
 
 // Template engine
 app.set("view engine", "ejs");

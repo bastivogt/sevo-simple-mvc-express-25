@@ -12,6 +12,12 @@ class PageController extends BaseController {
     index(req, res) {
         return res.render("pageApp/index", {});
     }
+
+    _404(req, res) {
+        return res.render("pageApp/404", {
+            "title": "404 - Page not found"
+        })
+    }
 }
 
 module.exports = PageController.getInstance();
