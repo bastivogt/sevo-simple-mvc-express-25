@@ -8,6 +8,7 @@ class PersonController extends BaseController {
             where: {
                 published: true,
             },
+            order: [["id", "DESC"]],
         });
         res.render("personApp/index", {
             title: "People",
