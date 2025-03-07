@@ -5,6 +5,7 @@
 <p>Do you really want to delete this Person?</p>
 
 <form action="/person/delete/<%= person.id %>" method="post">
+    <%- formProtection.protect() %>
     <button>Delete</button>
 </form>
 <br />
