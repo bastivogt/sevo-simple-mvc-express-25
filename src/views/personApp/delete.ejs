@@ -5,6 +5,7 @@
 <p>Do you really want to delete this Person?</p>
 
 <form action="/person/delete/<%= person.id %>" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
     <button>Delete</button>
 </form>
 <br />

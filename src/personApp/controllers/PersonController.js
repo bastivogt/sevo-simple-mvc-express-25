@@ -1,7 +1,6 @@
 const BaseController = require("../../../sevo/controllers/BaseController");
 const PersonModel = require("../models/PersonModel");
 const PersonFormData = require("../forms/PersonFormData");
-const FormProtection = require("../../../sevo/forms/FormProtection");
 
 class PersonController extends BaseController {
     async index(req, res, next) {
@@ -39,6 +38,7 @@ class PersonController extends BaseController {
             title: "Create Person",
             values: formData.getFields(),
             referrer: req.get("referrer"),
+            csrfToken: req.csrfToken(),
         });
     }
 
@@ -102,10 +102,12 @@ class PersonController extends BaseController {
             person: person,
             values: formData.getFields(),
             referrer: req.get("referrer"),
+            csrfToken: req.csrfToken(),
         });
     }
 
     async delete(req, res, next) {
+        //console.log("DELETE CONTROLLER csrf token", req.csrfToken());
         const id = parseInt(req.params.id);
         if (!id || id === NaN) {
             return next();
@@ -140,6 +142,7 @@ class PersonController extends BaseController {
             title: person.firstname,
             person: person,
             referrer: req.get("referrer"),
+            csrfToken: req.csrfToken(),
         });
     }
 }
