@@ -121,9 +121,6 @@ class PersonController extends BaseController {
             return next();
         }
 
-        let formProtection;
-        formProtection = new FormProtection();
-
         const formData = new PersonFormData({
             firstname: person.firstname,
             lastname: person.lastname,
@@ -132,20 +129,9 @@ class PersonController extends BaseController {
 
         if (req.method === "POST") {
             formData.update(req.body);
-            console.error("check", req.body.protection);
-            console.error(
-                "field",
-                formData.getField(formProtection.getName()).value
-            );
-            console.error(
-                "ch",
-                formProtection.check(
-                    formData.getField(formProtection.getName()).value
-                )
-            );
 
             if (formData.isValid()) {
-                //await person.destroy();
+                await person.destroy();
                 return res.redirect("/person");
             }
         }
@@ -154,7 +140,6 @@ class PersonController extends BaseController {
             title: person.firstname,
             person: person,
             referrer: req.get("referrer"),
-            formProtection: formProtection,
         });
     }
 }
