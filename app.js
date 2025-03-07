@@ -9,6 +9,8 @@ const pageAppRouter = require("./src/pageApp/routes");
 const PageController = require("./src/pageApp/controllers/PageController");
 const LoggerMiddleware = require("./src/loggerApp/middleware/LoggerMiddleware");
 
+const { csrfTokenInputField } = require("./sevo/helper/ViewHelper");
+
 const app = express();
 const port = 8042;
 const host = "http://localhost";
@@ -39,6 +41,9 @@ app.use(PageController._404);
 // Template engine
 app.set("view engine", "ejs");
 app.set("views", "./src/views");
+
+// locals
+app.locals.csrfTokenInputField = csrfTokenInputField;
 
 app.listen(port, () => {
     console.log(`App listen at: ${host}:${port}`);

@@ -2,10 +2,16 @@
 
 <h1><%= title %></h1>
 
-<p>Do you really want to delete this Person?</p>
+<p>
+    Do you really want to delete:
+    <strong
+        ><%= person.firstname %> <%= person.lastname %> (<%= person.birthday
+        %>)</strong
+    >?
+</p>
 
 <form action="/person/delete/<%= person.id %>" method="post">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <%- csrfTokenInputField(csrfToken) %>
     <button>Delete</button>
 </form>
 <br />
