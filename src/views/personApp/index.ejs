@@ -5,4 +5,16 @@
     <a href="/person/create">Create Person</a>
 </div>
 
+<div>
+    <ul>
+        <% for(const person of people) { %>
+        <li>
+            <a href="/person/<%= person.id %>"><%= person.firstname %></a>
+            <a href="/person/update/<%= person.id %>">[Edit]</a>
+            <a href="/person/delete/<%= person.id %>">[Delete]</a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+
 <%- include("../partials/_footer") %>

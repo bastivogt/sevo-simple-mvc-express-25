@@ -1,8 +1,12 @@
 <%- include("../partials/_header") %>
 
-<h1><%= title %> id: <%= id %></h1>
-
-
+<h1><%= title %></h1>
+<div>
+    <div><strong>First name: </strong><%- person.firstname %></div>
+    <div><strong>Last name: </strong><%- person.lastname %></div>
+    <div><strong>Birthday: </strong><%- person.birthday %></div>
+</div>
+<br />
 <div>
     <a href="<%= referrer %>">Back</a>
 </div>

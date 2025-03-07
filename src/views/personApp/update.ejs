@@ -1,7 +1,15 @@
 <%- include("../partials/_header") %>
 
-<h1><%= title %> id: <%= id %></h1>
+<h1><%= title %></h1>
 
+<div>
+    <form action="/person/update/<%= person.id %>" method="post">
+        <%- include("./partials/_form") %>
+        <button>Submit</button>
+    </form>
+</div>
+
+<br />
 
 <div>
     <a href="<%= referrer %>">Back</a>

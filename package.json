@@ -3,13 +3,14 @@
     "body-parser": "^1.20.3",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "sequelize": "^6.37.6",
+    "sqlite3": "^5.1.7"
   },
   "name": "simple-mvc-25",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
